@@ -1,22 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: billing-application-set
+  name: many-apps-application-set
   namespace: argocd
-#  finalizers:
-#    - resources-finalizer.argocd.argoproj.io
 spec:
   generators:
-  - list:
-      elements:
-      - namespace: prod
-      - namespace: qa
-      - namespace: staging
+  - git:
+      repoURL: https://github.com/Dev-Rohitb/gitops-argocd-advanced-demo.git
+      revision: HEAD
+      directories:
+      - path: application-sets/example-apps/*
   template:      
     metadata:
-      name: 'demo-{{namespace}}'
-      finalizers:
-        - resources-finalizer.argocd.argoproj.io
+      name: '{{path.basename}}'
     spec:
       # The project the application belongs to.
       project: default
@@ -25,12 +21,12 @@ spec:
       source:
         repoURL: https://github.com/Dev-Rohitb/gitops-argocd-advanced-demo.git
         targetRevision: HEAD
-        path: ./environment-promotion/envs/{{namespace}}
+        path: '{{path}}'
       
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
+        namespace: '{{path.basename}}'
 
       # Sync policy
       syncPolicy:
