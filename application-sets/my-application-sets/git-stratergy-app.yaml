@@ -14,7 +14,7 @@ spec:
       - namespace: staging
   template:      
     metadata:
-      name: 'demo-{{namespace}}'
+      name: '{{namespace}}'
       finalizers:
         - resources-finalizer.argocd.argoproj.io
     spec:
