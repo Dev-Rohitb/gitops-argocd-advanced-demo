@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/Dev-Rohitb/gitops-argocd-advanced-demo.git
     targetRevision: HEAD
-    path: ./app-of-apps/manifests/simple_app
+    path: ./app-of-apps/manifests/nginx
    
   # Destination cluster and namespace to deploy the application
   destination:
