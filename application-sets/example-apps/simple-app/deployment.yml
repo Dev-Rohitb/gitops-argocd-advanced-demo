@@ -7,14 +7,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: trivial-go-web-app
+      app: go-web-app
   template:
     metadata:
       labels:
-        app: trivial-go-web-app
+        app: go-web-app
     spec:
       containers:
       - name: webserver-simple
-        image: docker.io/kostiscodefresh/gitops-simple-app:v1.0
+        image: borkarrohit/knative-demo-app:v1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
