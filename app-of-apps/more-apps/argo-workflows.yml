@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/Dev-Rohitb/gitops-argocd-advanced-demo.git
     targetRevision: HEAD
-    path: ./app-of-apps/manifests
+    path: ./app-of-apps/manifests/argo-workflow
    
   # Destination cluster and namespace to deploy the application
   destination:
