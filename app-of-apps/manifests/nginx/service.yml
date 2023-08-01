@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple-service
+  name: nginx-service
 spec:
   type: LoadBalancer
   selector:
-    app: trivial-go-web-app
+    app: nginx-web-app
   ports:
     - protocol: TCP
       port: 80
