@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: webserver-simple
-        image: borkarrohit/knative-demo-app:v2
+        image: borkarrohit/knative-demo-app:v1
         ports:
         - containerPort: 80
