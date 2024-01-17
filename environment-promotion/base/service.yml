@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: simple-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: trivial-go-web-app
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 80
       name: internal-port
